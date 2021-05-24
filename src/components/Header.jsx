@@ -1,10 +1,10 @@
 import React from 'react';
 
 import '../assets/styles/components/Header.scss';
+import logoPlatziVideo from '../assets/static/logo-platzi-video.png';
+import userIcon from '../assets/static/user-icon.png';
 
 const Header = () => {
-  const logoPlatziVideo = '../assets/img/logo-platzi-video.png';
-  const userIcon = '../assets/img/user-icon.png';
   return (
     <header className='header'>
       <img src={logoPlatziVideo} alt='Platzi video' className='header__img' />
