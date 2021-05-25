@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
@@ -6,19 +6,14 @@ import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
 import Footer from '../components/Footer';
 
+import useInitialState from '../hooks/useInitialState';
+
 import '../assets/styles/App.scss';
 
-const App = () => {
-  const [videos, setVideos] = useState({ myList: [], trends: [], originals: [] });
+const API = 'http://localhost:3000/initalState';
 
-  useEffect(() => {
-    fetch('http://localhost:3000/initalState')
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
-        setVideos(response);
-      });
-  }, []);
+const App = () => {
+  const initialState = useInitialState(API);
 
   const renderCarouselItem = ({ id, cover, title, year, contentRating, duration }) => (
     <CarouselItem
@@ -36,24 +31,24 @@ const App = () => {
     <div className='app'>
       <Header />
       <Search />
-      {videos.myList?.length > 0 && (
+      {initialState.myList?.length > 0 && (
         <Categories title='Mi lista'>
           <Carousel>
-            {videos.myList.map((item) => renderCarouselItem(item))}
+            {initialState.myList.map((item) => renderCarouselItem(item))}
           </Carousel>
         </Categories>
       )}
-      {videos.trends?.length > 0 && (
+      {initialState.trends?.length > 0 && (
         <Categories title='Tendencias'>
           <Carousel>
-            {videos.trends.map((item) => renderCarouselItem(item))}
+            {initialState.trends.map((item) => renderCarouselItem(item))}
           </Carousel>
         </Categories>
       )}
-      {videos.originals?.length > 0 && (
+      {initialState.originals?.length > 0 && (
         <Categories title='Originales de Platzi'>
           <Carousel>
-            {videos.originals.map((item) => renderCarouselItem(item))}
+            {initialState.originals.map((item) => renderCarouselItem(item))}
           </Carousel>
         </Categories>
       )}
