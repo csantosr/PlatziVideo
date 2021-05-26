@@ -28,8 +28,7 @@ const Home = () => {
   );
 
   return (
-    <div className='app'>
-      <Header />
+    <>
       <Search />
       {initialState.myList?.length > 0 && (
         <Categories title='Mi lista'>
@@ -52,8 +51,7 @@ const Home = () => {
           </Carousel>
         </Categories>
       )}
-      <Footer />
-    </div>
+    </>
   );
 };
 
