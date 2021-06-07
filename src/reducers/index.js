@@ -33,6 +33,14 @@ const reducer = (state, action) => {
         ...state,
         user: action.payload,
       };
+    case 'GET_VIDEO_SOURCE':
+      return {
+        ...state,
+        playing: [
+          ...state.trends,
+          ...state.originals,
+        ].find((element) => element.id === Number(action.payload)) || [],
+      };
     default:
       return state;
   };
