@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
+
 import { setFavorite, deleteFavorite } from '../actions';
 
 import '../assets/styles/components/CarouselItem.scss';
@@ -31,7 +33,12 @@ const CarouselItem = (props) => {
       <img className='carousel-item__img' src={cover} alt={title} />
       <div className='carousel-item__details'>
         <div className='carousel-item__details--buttons'>
-          <img src={playIcon} alt='Play icon' />
+          <Link to={`/player/${id}`}>
+            <img
+              src={playIcon}
+              alt='Play icon'
+            />
+          </Link>
           {isList ? (
             <img
               src={deleteIcon}
