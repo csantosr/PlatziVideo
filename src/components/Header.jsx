@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
+import classNames from 'classnames';
+
 import { logoutRequest } from '../actions';
 
 import gravatar from '../utils/gravatar';
@@ -14,14 +16,19 @@ import logoPlatziVideo from '../assets/static/logo-platzi-video.png';
 import userIcon from '../assets/static/user-icon.png';
 
 const Header = (props) => {
-  const { user, logoutRequest } = props;
+  const { user, logoutRequest, isLogin, isRegister } = props;
 
   const hasUser = Object.keys(user).length > 0;
 
   const handleLogout = logoutRequest;
 
+  const headerClass = classNames('header', {
+    isLogin,
+    isRegister,
+  });
+
   return (
-    <header className='header'>
+    <header className={headerClass}>
       <Link to='/'>
         <img src={logoPlatziVideo} alt='Platzi video' className='header__img' />
       </Link>

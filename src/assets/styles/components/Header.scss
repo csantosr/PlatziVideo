@@ -55,6 +55,8 @@
       img {
         margin-right: 8px;
         width: 40px;
+        border-radius: 100%;
+        object-fit: cover;
       }
 
       p {
@@ -63,4 +65,8 @@
       }
     }
   }
+}
+
+.isLogin, .isRegister {
+  background-color: #21C08B;
 }

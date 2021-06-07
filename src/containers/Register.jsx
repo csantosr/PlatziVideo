@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { registerRequest } from '../actions';
+import Header from '../components/Header';
 
 import '../assets/styles/components/Input.scss';
 import '../assets/styles/containers/Register.scss';
@@ -30,39 +31,43 @@ const Register = (props) => {
     registerRequest(form);
     history.push('/');
   };
+
   return (
-    <section className='register'>
-      <section className='register__container'>
-        <h2>Regístrate</h2>
-        <form className='register__container--form' onSubmit={handleSubmit}>
-          <input
-            className='input input-form'
-            type='text'
-            placeholder='Nombre'
-            name='name'
-            onChange={handleUpdateInput}
-          />
-          <input
-            className='input input-form'
-            type='text'
-            placeholder='Correo'
-            name='email'
-            onChange={handleUpdateInput}
-          />
-          <input
-            className='input input-form'
-            type='password'
-            placeholder='Contraseña'
-            name='password'
-            onChange={handleUpdateInput}
-          />
-          <button className='button' type='submit'>Registrarme</button>
-        </form>
-        <section className='register__container--login'>
-          <Link to='/login'>Iniciar sesión</Link>
+    <>
+      <Header isRegister />
+      <section className='register'>
+        <section className='register__container'>
+          <h2>Regístrate</h2>
+          <form className='register__container--form' onSubmit={handleSubmit}>
+            <input
+              className='input input-form'
+              type='text'
+              placeholder='Nombre'
+              name='name'
+              onChange={handleUpdateInput}
+            />
+            <input
+              className='input input-form'
+              type='text'
+              placeholder='Correo'
+              name='email'
+              onChange={handleUpdateInput}
+            />
+            <input
+              className='input input-form'
+              type='password'
+              placeholder='Contraseña'
+              name='password'
+              onChange={handleUpdateInput}
+            />
+            <button className='button' type='submit'>Registrarme</button>
+          </form>
+          <section className='register__container--login'>
+            <Link to='/login'>Iniciar sesión</Link>
+          </section>
         </section>
       </section>
-    </section>
+    </>
   );
 };
 
