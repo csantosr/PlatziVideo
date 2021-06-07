@@ -1,0 +1,31 @@
+.input {
+  color: white;
+  font-family: 'Mulish', sans-serif;
+  height: 50px;
+  padding: 0 20px;
+
+  &::placeholder {
+    color: white;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.input-search {
+  border: 2px solid white;
+  border-radius: 25px;
+  background-color: rgba(171, 136, 255, 0.1);
+  width: 70%;
+}
+
+.input-form {
+  background-color: transparent;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 2px solid white;
+  font-size: 16px;
+  margin-bottom: 20px;
+}

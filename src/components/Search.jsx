@@ -1,11 +1,12 @@
 import React from 'react';
 
 import '../assets/styles/components/Search.scss';
+import '../assets/styles/components/Input.scss';
 
 const Search = () => (
   <section className='main'>
     <h2 className='main__title'>¿Qué quieres ver hoy?</h2>
-    <input className='input' type='text' placeholder='Buscar...' />
+    <input className='input input-search' type='text' placeholder='Buscar...' />
   </section>
 );
 
