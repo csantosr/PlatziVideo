@@ -10,7 +10,7 @@ import Header from '../components/Header';
 
 import '../assets/styles/App.scss';
 
-const Home = ({ myList, trends, originals }) => {
+const Home = ({ search, myList, trends, originals }) => {
   const renderCarouselItem = (
     { id, cover, title, year, contentRating, duration },
     isList = false,
@@ -31,6 +31,13 @@ const Home = ({ myList, trends, originals }) => {
     <>
       <Header />
       <Search />
+      {search?.length > 0 && (
+        <Categories title='Búsqueda'>
+          <Carousel>
+            {search.map((item) => renderCarouselItem(item))}
+          </Carousel>
+        </Categories>
+      )}
       {myList?.length > 0 && (
         <Categories title='Mi lista'>
           <Carousel>
@@ -57,6 +64,7 @@ const Home = ({ myList, trends, originals }) => {
 };
 
 const mapStateToProps = (state) => ({
+  search: state.search,
   myList: state.myList,
   trends: state.trends,
   originals: state.originals,
